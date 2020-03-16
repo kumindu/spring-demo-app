@@ -69,7 +69,7 @@ and then will deploy a new task definition to Amazon ECS, when a release is crea
   
  ```
  
-  6.To scale deployment in kubernetes
+  7.To scale deployment in kubernetes
   
  ```
    kubectl scale deployment springdemo --replicas=2
