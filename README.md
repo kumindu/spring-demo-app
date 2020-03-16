@@ -36,7 +36,7 @@ and then will deploy a new task definition to Amazon ECS, when a release is crea
  
 ```
    docker login
-   docker push {docker_hub_profile_Name}/springdemo .
+   docker push {docker_hub_profile_Name}/springdemo
    
 ```
   3.Deploy to kubernetes deployment
