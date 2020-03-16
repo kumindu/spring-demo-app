@@ -29,5 +29,49 @@ and then will deploy a new task definition to Amazon ECS, when a release is crea
 
  1.Build docker images.
 ```
-   docker build -t openwit/springdemo .
+   docker build -t {docker_hub_profile_Name}/springdemo .
+   
 ```
+ 2.Docker push to docker hub
+ 
+```
+   docker login
+   docker push {docker_hub_profile_Name}/springdemo .
+   
+```
+  3.Deploy to kubernetes deployment
+ 
+ ```
+   kubectl run springdemo --image={docker_hub_profile_Name}/springdemo:latest --port 8080 --labels="app=springdemo,tier=backend"
+ 
+ ```
+ 
+  4.To get kubernetes deployment,pods
+ 
+ ```
+  kubectl get pods
+  kubectl get deployment
+  
+ ```
+ 
+  5.Create kubernetes service
+  
+ ```
+   kubectl expose deployment springdemo --type=LoadBalancer --port 80 --target-port 8080
+ 
+ ```
+ 
+  6.To get kubernetes services
+ 
+ ```
+  
+   kubectl get service
+  
+ ```
+ 
+  6.To scale deployment in kubernetes
+  
+ ```
+   kubectl scale deployment springdemo --replicas=2
+  
+ ```
